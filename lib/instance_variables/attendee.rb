@@ -2,20 +2,11 @@
 
 # Attendee exercise
 class Attendee
+  attr_reader :height, :pass_id
+
   # Make new attendees
   def initialize(height)
     @height = height
-    @pass_id
-  end
-
-  # How tall is the attendee
-  def height
-    @height
-  end
-
-  # What is the ride pass id
-  def pass_id
-    @pass_id
   end
 
   # Allow people to buy a pass
