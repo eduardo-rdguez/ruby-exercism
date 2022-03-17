@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'minitest/autorun'
-require './lib/instance_variables/attendee.rb'
+require './lib/instance_variables/attendee'
 
 # Test attendee exercise
 class AttendeeTest < Minitest::Test

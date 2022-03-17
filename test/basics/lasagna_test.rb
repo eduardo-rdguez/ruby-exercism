@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'minitest/autorun'
-require './lib/basics/lasagna.rb'
+require './lib/basics/lasagna'
 
 # Test Lasagna exercise
 class LasagnaTest < Minitest::Test
