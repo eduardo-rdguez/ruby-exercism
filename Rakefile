@@ -9,5 +9,5 @@ RuboCop::RakeTask.new(:lint) do |task|
 end
 
 task :test do
-  Dir.glob('./test/*_test.rb').each { |file| require file }
+  Dir.glob('./test/**/*.rb').each { |file| require file }
 end
