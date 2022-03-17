@@ -6,13 +6,14 @@ class SimpleCalculator
   UNSUPPORTED_OPERATION_ERROR_MESSAGE = 'UnsupportedOperation'
   ZERO_DIVISION_ERROR_MESSAGE = 'Division by zero is not allowed.'
 
+  # Custom unsupported operation exception class
   class UnsupportedOperation < StandardError
     UNSUPPORTED_OPERATION_ERROR_MESSAGE
   end
 
   def self.calculate(first_operand, second_operand, operation)
-    raise UnsupportedOperation unless self.validate_operation?(operation)
-    raise ArgumentError unless self.validate_operands?(first_operand, second_operand)
+    raise UnsupportedOperation unless validate_operation?(operation)
+    raise ArgumentError unless validate_operands?(first_operand, second_operand)
 
     evaluate_operation(first_operand, second_operand, operation)
   end
@@ -26,11 +27,9 @@ class SimpleCalculator
   end
 
   def self.evaluate_operation(first_operand, second_operand, operation)
-    begin
-      result = first_operand.public_send(operation, second_operand)
-      return "#{first_operand} #{operation} #{second_operand} = #{result}"
-    rescue
-      return ZERO_DIVISION_ERROR_MESSAGE
-    end
+    result = first_operand.public_send(operation, second_operand)
+    "#{first_operand} #{operation} #{second_operand} = #{result}"
+  rescue ZeroDivisionError
+    ZERO_DIVISION_ERROR_MESSAGE
   end
 end
