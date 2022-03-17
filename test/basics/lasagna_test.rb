@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 require 'minitest/autorun'
-require_relative '../lib/basics/lasagna'
+require './lib/basics/lasagna.rb'
 
 # Test Lasagna exercise
-class LasagnaTest < MiniTest::TestCase
+class LasagnaTest < Minitest::Test
   def test_expected_minutes_in_oven
     assert_equal 40, Lasagna::EXPECTED_MINUTES_IN_OVEN
   end
