@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'minitest/autorun'
-require './lib/raising_exceptions/simple_calculator.rb'
+require './lib/raising_exceptions/simple_calculator'
 
 # Test simple calculator
 class SimpleCalculatorTest < Minitest::Test
@@ -14,10 +14,6 @@ class SimpleCalculatorTest < Minitest::Test
   end
 
   def test_division
-    assert_equal '3 * 21 = 63', SimpleCalculator.calculate(3, 21, '*')
-  end
-
-  def test_division
     assert_equal '72 / 9 = 8', SimpleCalculator.calculate(72, 9, '/')
   end
 
@@ -26,32 +22,22 @@ class SimpleCalculatorTest < Minitest::Test
   end
 
   def test_no_number_first_operand
-    assert_raises(ArgumentError) {
-      SimpleCalculator.calculate('1', 2, '+')
-    }
+    assert_raises(ArgumentError) { SimpleCalculator.calculate('1', 2, '+') }
   end
 
   def test_no_number_second_operand
-    assert_raises(ArgumentError) {
-      SimpleCalculator.calculate(1, '2', '+')
-    }
+    assert_raises(ArgumentError) { SimpleCalculator.calculate(1, '2', '+') }
   end
 
   def test_raises_exception_for_non_valid_operations
-    assert_raises(SimpleCalculator::UnsupportedOperation) {
-      SimpleCalculator.calculate(1, 2, '**')
-    }
+    assert_raises(SimpleCalculator::UnsupportedOperation) { SimpleCalculator.calculate(1, 2, '**') }
   end
 
   def test_raises_exception_when_operation_is_nil
-    assert_raises(SimpleCalculator::UnsupportedOperation) {
-      SimpleCalculator.calculate(1, 2, nil)
-    }
+    assert_raises(SimpleCalculator::UnsupportedOperation) { SimpleCalculator.calculate(1, 2, nil) }
   end
 
   def test_raises_exception_when_operation_is_an_empty_string
-    assert_raises(SimpleCalculator::UnsupportedOperation) {
-      SimpleCalculator.calculate(1, 2, '')
-    }
+    assert_raises(SimpleCalculator::UnsupportedOperation) { SimpleCalculator.calculate(1, 2, '') }
   end
 end
