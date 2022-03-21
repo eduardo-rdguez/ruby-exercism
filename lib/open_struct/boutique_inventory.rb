@@ -2,10 +2,14 @@
 
 # Boutique inventory improvements exercise
 class BoutiqueInventory
+  Item = Struct.new(:price, :name, :quantity_by_size)
+
   attr_reader :items
 
   def initialize(items)
-    @items = items.map { |item| OpenStruct.new(item) }
+    @items = items.map do |item|
+      Item.new(item[:price], item[:name], item[:quantity_by_size])
+    end
   end
 
   def item_names
