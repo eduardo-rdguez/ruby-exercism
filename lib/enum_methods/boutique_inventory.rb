@@ -7,25 +7,25 @@ class BoutiqueInventory
   end
 
   def item_names
-    @items.map { |item| item[:name] }.sort
+    @items.map { |item| item.fetch(:name) }.sort
   end
 
   def cheap
-    @items.select { |item| item[:price] < 30 }
+    @items.select { |item| item.fetch(:price) < 30 }
   end
 
   def out_of_stock
-    @items.select { |item| item[:quantity_by_size].empty? }
+    @items.select { |item| item.fetch(:quantity_by_size).empty? }
   end
 
   def stock_for_item(name)
-    item_found = @items.find { |item| item[:name] == name }
-    item_found[:quantity_by_size]
+    item_found = @items.find { |item| item.fetch(:name) == name }
+    item_found.fetch(:quantity_by_size)
   end
 
   def total_stock
     @items.reduce(0) do |total, item|
-      total + item[:quantity_by_size].values.sum
+      total + item.fetch(:quantity_by_size).values.sum
     end
   end
 

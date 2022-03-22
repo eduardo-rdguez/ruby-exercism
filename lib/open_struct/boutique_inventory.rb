@@ -8,7 +8,11 @@ class BoutiqueInventory
 
   def initialize(items)
     @items = items.map do |item|
-      Item.new(item[:price], item[:name], item[:quantity_by_size])
+      Item.new(
+        item.fetch(:price),
+        item.fetch(:name),
+        item.fetch(:quantity_by_size)
+      )
     end
   end
 
