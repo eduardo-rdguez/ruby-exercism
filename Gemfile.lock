@@ -2,6 +2,8 @@ GEM
   remote: https://rubygems.org/
   specs:
     ast (2.4.2)
+    codecov (0.6.0)
+      simplecov (>= 0.15, < 0.22)
     docile (1.4.0)
     minitest (5.15.0)
     parallel (1.22.0)
@@ -35,6 +37,7 @@ PLATFORMS
   arm64-darwin-20
 
 DEPENDENCIES
+  codecov
   minitest
   rake
   rubocop
