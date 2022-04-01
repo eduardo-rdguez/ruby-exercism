@@ -2,7 +2,7 @@
 
 # Word count exercise
 class Phrase
-  WORD_REGEX = /\w+'\w+|\w+/
+  WORD_REGEX = /\w+'\w+|\w+/.freeze
 
   attr_reader :phrase
 
