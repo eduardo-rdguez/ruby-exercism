@@ -26,4 +26,4 @@ jobs:
       - name: Send test converage report
         uses: codecov/codecov-action@v1
         with:
-          file: ./coverage/codecov-result.json
+          file: ./coverage/.resultset.json
