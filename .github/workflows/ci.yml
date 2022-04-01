@@ -23,3 +23,7 @@ jobs:
         run: bundle install
       - name: Run tests
         run: bundle exec rake
+      - name: Send test converage report
+        uses: codecov/codecov-action@v1
+        with:
+          file: ./coverage/codecov-result.json
